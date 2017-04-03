@@ -22,6 +22,7 @@
     <modules>
         <module>jasypt-spring-boot</module>
         <module>jasypt-spring-boot-starter</module>
+        <module>myapp</module>
     </modules>
 
     <issueManagement>
