@@ -1,25 +1,32 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.github.ulisesbocchio</groupId>
-        <artifactId>jasypt-spring-boot-parent</artifactId>
-        <version>1.13-SNAPSHOT</version>
-    </parent>
+  <properties>
+    <spring.boot.version>1.5.1.RELEASE</spring.boot.version>
+    <start-class>org.teckhooi.MyApp</start-class>
+  </properties>
 
-    <artifactId>myapp</artifactId>
-    <packaging>jar</packaging>
-    <name>My Spring Boot App</name>
-    <description>A simple Spring Boot application</description>
+  <parent>
+    <groupId>com.github.ulisesbocchio</groupId>
+    <artifactId>jasypt-spring-boot-parent</artifactId>
+    <version>1.13-SNAPSHOT</version>
+  </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.github.ulisesbocchio</groupId>
-            <artifactId>jasypt-spring-boot</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-    </dependencies>
+  <artifactId>myapp</artifactId>
+  <packaging>jar</packaging>
+  <name>My Spring Boot App</name>
+  <description>A simple Spring Boot application</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.ulisesbocchio</groupId>
+      <artifactId>jasypt-spring-boot-starter</artifactId>
+    </dependency>
+  </dependencies>
 </project>

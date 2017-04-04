@@ -1,16 +1,14 @@
 package org.teckhooi;
 
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.Banner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-
-import javax.swing.text.html.Option;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by sshark on 3/4/17.
@@ -18,6 +16,8 @@ import java.util.Optional;
 
 @SpringBootApplication
 public class MyApp implements ApplicationRunner {
+    private final static Logger LOG = LoggerFactory.getLogger(MyApp.class);
+
     @Value("${secret}")
     private String secretMessage;
 
@@ -26,18 +26,16 @@ public class MyApp implements ApplicationRunner {
             .bannerMode(Banner.Mode.OFF)
             .application()
             .run(args);
-
-//        new SpringApplication(MyApp.class, args);
     }
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         if (applicationArguments.containsOption("monthly")) {
-            System.out.println("Monthly is selected.");
+            LOG.info("Monthly is selected.");
         }
 
-        Optional.ofNullable(applicationArguments.getOptionValues("markers")).ifPresent(args -> args.stream().forEach(System.out::println));
+        Optional.ofNullable(applicationArguments.getOptionValues("markers")).ifPresent(args -> args.stream().forEach(LOG::debug));
 
-        System.out.println("The secret message is " + secretMessage);
+        LOG.info("The secret message is " + secretMessage);
     }
 }
